@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samlp:Response
+	Destination="https://manager.everbridge.net/saml/SSO/chopqa/alias/defaultAlias"
+	ID="_B8F25F57-ADF6-FC7B-5E2643A03CF322FF" IssueInstant="2015-01-12T17:57:50Z"
+	Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+	xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+	<saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"> www.chop.edu </saml:Issuer>
+	<samlp:Status>
+		<samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
+	</samlp:Status>
+	<saml:Assertion ID="_B8F25F52-BAA6-8883-E01918BC26752A29"
+		IssueInstant="2015-01-12T17:57:50Z" Version="2.0">
+		<saml:Issuer> www.chop.edu </saml:Issuer>
+		<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+			<ds:SignedInfo>
+				<ds:CanonicalizationMethod
+					Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+				<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+				<ds:Reference URI="#_B8F25F52-BAA6-8883-E01918BC26752A29">
+					<ds:Transforms>
+						<ds:Transform
+							Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+						<ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+					</ds:Transforms>
+					<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+					<ds:DigestValue>H8Esjd+gvIJoUYc4bgFlzll9w1E=</ds:DigestValue>
+				</ds:Reference>
+			</ds:SignedInfo>
+			<ds:SignatureValue>
+				ckbPcxqskORugHsMzP5vlv3KB9o5CEqVKHvxiP/cYBx3WX8+4Z1CB+lAG27vzoyPjTfSxY+1WuhQ
+				nwjauKxY/LQglVmM2gBZCZ0RkbfTjo5Ljz7WnXyzt3NB7Yby2GDxChhDf9A6JLc64I5t5EFFsT+X
+				C2miPEZh6Qd5KPWxM2JsNWpEwOlVvRkL4LjaJBy167QcounKLpYBXrjbbd7S9zTpsJc1y4hjw8bX
+				K+1ZTK11bN6yirX99TbAOjLU16OMTq4N/8Fni2624MUTLgJX36s/v2s9216KXMH0S0XpqHjOz2l1
+				pwJB+WOCD8fi6PkFnLA9Hnd5NyUxEaWBdweb5g== </ds:SignatureValue>
+			<ds:KeyInfo>
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIID/TCCAuWgAwIBAgIEMv2a8DANBgkqhkiG9w0BAQsFADCBrjELMAkGA1UEBhMCVVMxFTATBgNV
+						BAgTDFBlbm5zeWx2YW5pYTEVMBMGA1UEBxMMUGhpbGFkZWxwaGlhMTAwLgYDVQQKEydUaGUgQ2hp
+						bGRyZW4ncyBIb3NwaXRhbCBvZiBQaGlsYWRlbHBoaWExHTAbBgNVBAsTFEluZm9ybWF0aW9uIFNl
+						cnZpY2VzMSAwHgYDVQQDExdFbnRlcnByaXNlIEFwcGxpY2F0aW9uczAeFw0xNTAxMTIxNjUzMzBa
+						Fw0xNzEyMTUxNjUzMzBaMIGuMQswCQYDVQQGEwJVUzEVMBMGA1UECBMMUGVubnN5bHZhbmlhMRUw
+						EwYDVQQHEwxQaGlsYWRlbHBoaWExMDAuBgNVBAoTJ1RoZSBDaGlsZHJlbidzIEhvc3BpdGFsIG9m
+						IFBoaWxhZGVscGhpYTEdMBsGA1UECxMUSW5mb3JtYXRpb24gU2VydmljZXMxIDAeBgNVBAMTF0Vu
+						dGVycHJpc2UgQXBwbGljYXRpb25zMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi6Ei
+						wlx1CDQxSinukybOJGPi9iHDty1BOjpthaRWMYY2BkaNrNz/yJ8QKxuJuBGeAHIM07A5nsQktscC
+						NxJSUqMWzPd9VKiPFKnlRJvknbxjNb7cLO1LXaFLq5qXax97qcytpMjvtJC7AiGIfuc7cPrBDuGz
+						7PnTzxPAeag82vbLsvfsLhugf052Ho/X5HzYGpk/AuDZGsgViMpddm7Zde6/T3Jd5Ve9610Jxikz
+						a0CuMNUwGp6sbK8Hpj5Vn7VS8DVZgOpDTit/Kd+TssKnpwnwN+JDpvbIs8blx3pkm0afVtyifmBU
+						SKYoQIlvrrqp7/QY2bDCtfkK5YqxjObzCQIDAQABoyEwHzAdBgNVHQ4EFgQUN/fjdZTYPt9QBiDQ
+						J+NYcoYOsrswDQYJKoZIhvcNAQELBQADggEBAGFPVBDbIUKgrId3UTYOkKNuS1jLuwmTY6ZI8x3n
+						2Rc3ODCtGMu4lkMoNGXETTQaUoR81AhJg1uhgaCyx1vglvzWTdwp9cPfGFZMxILHT0g5bPzNdxZ4
+						8ph/xInqxTv0tkCXmrNoqI5ZByGdE6LsRUv8V12yTDsB+BUeyHHnoOVBb9fXO9ifbYD7va/uLtUG
+						7OPTNlTNz+vkbq/5qGATbPqKXk2Y83YrBHLFb2tj9Fm3DTMrkEh89jI6XfbKR3hv3sw/h/vUS7dO
+						icfymxttqdE1sQ0evIfM3qmmfmQ6fWx98zI3eia1LjHokWRe2O4j6R9WPJUT/2Jxwv/F27IXcGU=
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</ds:Signature>
+		<saml:Subject>
+			<saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">930363</saml:NameID>
+			<saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+				<saml:SubjectConfirmationData
+					NotOnOrAfter="2015-01-12T18:00:50Z"
+					Recipient="https://manager.everbridge.net/saml/SSO/chopqa/alias/defaultAlias" />
+			</saml:SubjectConfirmation>
+		</saml:Subject>
+		<saml:Conditions NotBefore="2015-01-12T17:57:50Z">
+			<saml:AudienceRestriction>
+				<saml:Audience>https://www.chop.edu</saml:Audience>
+			</saml:AudienceRestriction>
+		</saml:Conditions>
+		<saml:AuthnStatement AuthnInstant="2015-01-12T17:57:50Z">
+			<saml:AuthnContext>
+				<saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
+				</saml:AuthnContextClassRef>
+			</saml:AuthnContext>
+		</saml:AuthnStatement>
+	</saml:Assertion>
+</samlp:Response>

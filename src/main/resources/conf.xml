@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+
+    <employee name="zansan">
+        <age>30</age>
+    </employee>
+    
+    <employee name="lisi">
+        <age>20</age>
+    </employee>
+    
+    <employee name="wangwu">
+        <age>25</age>
+    </employee>
+    
+</employees>
