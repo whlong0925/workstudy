@@ -2,6 +2,7 @@ package com.java.xml;
 import java.io.File;
 import java.io.InputStream;
 import java.util.Iterator;
+import java.io.InputStream;
 import java.util.List;
 
 import org.dom4j.Document;
