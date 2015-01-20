@@ -29,4 +29,11 @@ public class SAMLResponse {
 	public void setSignature(Signature signature) {
 		this.signature = signature;
 	}
+	@Override
+	public String toString() {
+		return "SAMLResponse [issuerValue=" + issuerValue
+				+ ", statusCodeValue=" + statusCodeValue + ", assertion="
+				+ assertion + ", signature=" + signature + "]";
+	}
+	
 }
