@@ -29,4 +29,17 @@ public class Constants {
 	public static final String URI = "URI";
 	public static final String DIGESTMETHOD = "DigestMethod";
 	public static final String DIGESTVALUE = "DigestValue";
+	public static final String NAMEID = "NameID";
+	public static final String FORMAT = "Format";
+	public static final String METHOD = "Method";
+	public static final String SUBJECTCONFIRMATIONDATA = "SubjectConfirmationData";
+	public static final String NOTONORAFTER = "NotOnOrAfter";
+	public static final String NOTBEFORE = "NotBefore";
+	public static final String ATTRIBUTESTATEMENT = "AttributeStatement";
+	public static final String AUTHNINSTANT = "AuthnInstant";
+	public static final String AUTHNCONTEXTCLASSREF = "AuthnContextClassRef";
+	public static final String NAME = "Name";
+	public static final String ATTRIBUTEVALUE = "AttributeValue";
+	public static final String XSI = "xsi";
+	public static final String NAMEFORMAT = "NameFormat";
 }
