@@ -10,14 +10,15 @@ public class TestPath {
 	}
 	public void printPath(){
 		//得到工程的路径
-		System.out.println(System.getProperty("user.dir") );//  /home/rain/studyworkspace/study
+		System.out.println(System.getProperty("user.dir") );//  /studyworkspace/workstudy
 		//获取类的classpath路径
-		System.out.println(TestPath.class.getClass().getResource("/").getPath());// /home/rain/studyworkspace/study/bin/
-		System.out.println(this.getClass().getResource("Test.properties").getPath());// /home/rain/studyworkspace/study/bin/com/java/util/Test.properties
+		System.out.println(TestPath.class.getClass().getResource("/").getPath());// /studyworkspace/workstudy/target/classes/
+		System.out.println(this.getClass().getResource("Test.properties").getPath());// /home/rain/studyworkspace/workstudy/target/classes/com/java/util/Test.properties
+
 		
-		System.out.println(this.getClass().getResource("").getPath());// /home/rain/studyworkspace/study/bin/com/java/util/
+		System.out.println(this.getClass().getResource("").getPath());// /home/rain/studyworkspace/workstudy/target/classes/com/java/util/
 		
-		System.out.println(Thread.currentThread().getContextClassLoader().getResource("").getPath());// /home/rain/studyworkspace/study/bin/
+		System.out.println(Thread.currentThread().getContextClassLoader().getResource("").getPath());// /home/rain/studyworkspace/workstudy/target/classes/
 		
 	}
 }

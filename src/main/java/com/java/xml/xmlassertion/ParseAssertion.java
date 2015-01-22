@@ -20,9 +20,9 @@ public class ParseAssertion {
 		SAXReader reader = new SAXReader();
 		// 得到XML文件的文件流
 		InputStream in = Thread.currentThread().getClass().getResourceAsStream("/assertion.xml");
-		// 注意:Document对象是org.dom4j包下的Document.通过SAXReader对象的read(InputStream)方法得到Document对象
 		SAMLResponse response = new SAMLResponse();
-
+		// 注意:Document对象是org.dom4j包下的Document.通过SAXReader对象的read(InputStream)方法得到Document对象
+		//Document doc = DocumentHelper.parseText(xml); // 将字符串转为XML
 		Document doc = reader.read(in);
 		Element rootElement = doc.getRootElement(); // 获取根节点
 
