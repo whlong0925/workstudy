@@ -1,6 +1,9 @@
 package com.java.security;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileReader;
 import java.security.Key;
 import java.security.KeyFactory;
 import java.security.KeyPair;
@@ -12,6 +15,7 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.security.spec.EncodedKeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
@@ -23,7 +27,7 @@ import javax.crypto.Cipher;
  * RSA安全编码组件
  * 
  */
-public abstract class RSAUtils extends EncryptUtils {
+public class RSAUtils extends EncryptUtils {
 	public static final String KEY_ALGORITHM = "RSA";
 	public static final String SIGNATURE_ALGORITHM = "SHA1withRSA";//也可以是　SHA1withRSA MD5withRSA
 	private  static final int  KEYSIZE = 1024;//单位：bit
@@ -32,7 +36,7 @@ public abstract class RSAUtils extends EncryptUtils {
 	private  static final int  MAX_ENCRYPT_BLOCK = MAX_DECRYPT_BLOCK - 11;//RSA最大加密明文大小
 	private static final String PUBLIC_KEY = "RSAPublicKey";
 	private static final String PRIVATE_KEY = "RSAPrivateKey";
-
+	public enum KeyType{ PUBLIC,PRIVATE; }
 	/**
 	 * 用私钥对信息生成数字签名
 	 * 
@@ -290,15 +294,48 @@ public abstract class RSAUtils extends EncryptUtils {
 		keyMap.put(PRIVATE_KEY, privateKey);
 		return keyMap;
 	}
-	
-	public static void main(String[] args) throws Exception{
-		testEncrypt();
-		testSign();
-	}
-	
-	public static void testEncrypt() throws Exception {  
+	private  Map<String, Object> initKey(File publicKeyFile,File privateKeyFile) throws Exception {
+        
+		BufferedReader publicBR = new BufferedReader(new FileReader(publicKeyFile));   
+	    String s = publicBR.readLine();   
+	    StringBuffer publickeyStr = new StringBuffer();   
+        s = publicBR.readLine();   
+        while (s.charAt(0) != '-') {   
+            publickeyStr.append(s + "\r");   
+            s = publicBR.readLine();   
+         }   
+         publicBR.close();
+         BufferedReader privateBR = new BufferedReader(new FileReader(privateKeyFile));   
+         String privateLine = privateBR.readLine();   
+         StringBuffer privateKeyStr = new StringBuffer();   
+         privateLine = privateBR.readLine();   
+         while (privateLine.charAt(0) != '-') {   
+        	 privateKeyStr.append(privateLine + "\r");   
+        	 privateLine = privateBR.readLine();   
+         }   
+         privateBR.close();
+	         
+	    byte[] publickeybyte  = decryptBASE64(publickeyStr.toString());   
+	    byte[] privatekeybyte = decryptBASE64(privateKeyStr.toString());   
 		
-		Map<String, Object> keyMap = initKey();  
+		
+	    KeyFactory keyfactory = KeyFactory.getInstance(KEY_ALGORITHM);
+		EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(privatekeybyte);
+		RSAPrivateKey privateKey = (RSAPrivateKey)keyfactory.generatePrivate(privateKeySpec);
+        
+        X509EncodedKeySpec x509eks = new X509EncodedKeySpec(publickeybyte);
+        RSAPublicKey publicKey = (RSAPublicKey) keyfactory.generatePublic(x509eks);
+        Map<String, Object> keyMap = new HashMap<String, Object>(2);
+		keyMap.put(PUBLIC_KEY, publicKey);
+		keyMap.put(PRIVATE_KEY, privateKey);
+		return keyMap;
+    }
+	
+	public void testEncrypt() throws Exception {  
+		File publickeyfile  =  new File(this.getClass().getResource("rsa_public_key.pem").getPath());
+		File privatekeyfile =  new File(this.getClass().getResource("rsa_pub_pk8.pem").getPath());//生成公钥和私钥后要将私钥转换为PKCS8格式
+//		Map<String, Object> keyMap = initKey();  
+		Map<String, Object> keyMap = initKey(publickeyfile,privatekeyfile);  
 		
         String publicKey = getPublicKey(keyMap); 
         
@@ -324,7 +361,7 @@ public abstract class RSAUtils extends EncryptUtils {
         System.err.println("加密前: " + inputStr + "\n\r" + "解密后: " + outputStr);  
 	}
 	
-	public static void testSign() throws Exception {  
+	public void testSign() throws Exception {  
 		
 		Map<String, Object> keyMap = initKey();  
 		
@@ -377,7 +414,7 @@ public abstract class RSAUtils extends EncryptUtils {
          
     }
 	
-	public static void testSign2() throws Exception{
+	public void testSign2() throws Exception{
 		
 		    String inputStr = "sign";  
 	        
@@ -413,5 +450,12 @@ public abstract class RSAUtils extends EncryptUtils {
 	        
 	        System.err.println("状态:\r" + status); 
 	        
+	}
+	
+	public static void main(String[] args) throws Exception{
+		RSAUtils rsaUtil = new RSAUtils();
+		rsaUtil.testEncrypt();
+		rsaUtil.testSign();
+		rsaUtil.testSign2();
 	}
 }

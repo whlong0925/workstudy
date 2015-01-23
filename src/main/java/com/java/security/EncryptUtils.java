@@ -41,7 +41,7 @@ public abstract class EncryptUtils {
 	 * @throws Exception
 	 */
 	public static byte[] decryptBASE64(String key) throws Exception {
-		return (new BASE64Decoder()).decodeBuffer(key);
+		return new BASE64Decoder().decodeBuffer(key);
 	}
 
 	/**
@@ -52,7 +52,7 @@ public abstract class EncryptUtils {
 	 * @throws Exception
 	 */
 	public static String encryptBASE64(byte[] key) throws Exception {
-		return (new BASE64Encoder()).encodeBuffer(key);
+		return new BASE64Encoder().encodeBuffer(key);
 	}
 
 	/**
