@@ -50,10 +50,10 @@ public class ExportKey {
 		PrivateKey privateKey = keyPair.getPrivate();
 		String encoded = encoder.encode(privateKey.getEncoded());
 		FileWriter fw = new FileWriter(exportedPrivateKeyFile);
-		fw.write("—–BEGIN PRIVATE KEY—–\n");
+		fw.write("-----BEGIN PRIVATE KEY-----\n");
 		fw.write(encoded);
 		fw.write("\n");
-		fw.write("—–END PRIVATE KEY—–");
+		fw.write("-----END PRIVATE KEY-----");
 		fw.close();
 	}
 	public void exportCertificate() throws Exception {

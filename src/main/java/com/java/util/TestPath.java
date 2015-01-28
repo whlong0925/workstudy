@@ -1,4 +1,7 @@
 package com.java.util;
+
+import java.io.InputStream;
+
 /**
  * 获取项目路径的方法
  * @author rain
@@ -19,6 +22,7 @@ public class TestPath {
 		System.out.println(this.getClass().getResource("").getPath());// /home/rain/studyworkspace/workstudy/target/classes/com/java/util/
 		
 		System.out.println(Thread.currentThread().getContextClassLoader().getResource("").getPath());// /home/rain/studyworkspace/workstudy/target/classes/
-		
+		//获取inputstream
+		InputStream ips = TestPath.class.getResourceAsStream("Test.properties");
 	}
 }
