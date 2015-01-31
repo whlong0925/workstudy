@@ -1,6 +1,8 @@
 package com.java.thread;
 /**
  * 主线程运行10次后接着子线程运行10次，然后在主线程运行10次，如此交替5次
+ * 采用synchronized wait nofify方法
+ * ThreadTest4 采用ReentrantLock Condition 方法
  *
  */
 public class ThreadTest3 {
