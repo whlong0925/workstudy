@@ -2,7 +2,7 @@ package com.design.mode.builder;
 
 import java.util.Date;
 /**
- * 产品
+ * 抽象的产品
  *
  */
 public abstract class AutoMessage {

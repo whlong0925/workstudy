@@ -12,12 +12,11 @@ public class Director {
 	/**
 	 * 产品构造方法，负责调用各零件的建造方法,一步步的建造出对象
 	 */
-	public AutoMessage construct(String toAddress, String fromAddress) {
+	public void construct(String toAddress, String fromAddress) {
 		this.builder.buildTo(toAddress);
 		this.builder.buildFrom(fromAddress);
 		this.builder.buildSubject();
 		this.builder.buildBody();
 		this.builder.buildSendDate();
-		return this.builder.getAutoMessage();
 	}
 }

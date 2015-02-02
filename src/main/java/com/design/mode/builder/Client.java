@@ -8,9 +8,10 @@ package com.design.mode.builder;
 public class Client {
 
 	public static void main(String[] args) {
-		Builder builder = new WelcomeBuilder();
-		Director director = new Director(builder);
-		AutoMessage autoMessage = director.construct("toAddress@126.com", "fromAddress@126.com");
+		Builder builder = new WelcomeBuilder();//建造者
+		Director director = new Director(builder);//导演者
+		director.construct("toAddress@126.com", "fromAddress@126.com");//建造对象
+		AutoMessage autoMessage = builder.getAutoMessage();//建造完成后获取具体的产品对象
 		autoMessage.send();
 
 	}
