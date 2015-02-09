@@ -6,13 +6,11 @@ import java.io.FileWriter;
 import java.security.Key;
 import java.security.KeyPair;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
-import sun.misc.*;
+
+import sun.misc.BASE64Encoder;
 /**
  * 
  * 从jks文件中导出私钥和证书
@@ -35,18 +33,17 @@ public class ExportKey {
 				PublicKey publicKey = cert.getPublicKey();
 				return new KeyPair(publicKey, (PrivateKey) key);
 			}
-		} catch (UnrecoverableKeyException e) {
-		} catch (NoSuchAlgorithmException e) {
-		} catch (KeyStoreException e) {
+		}  catch (Exception e) {
+			e.printStackTrace();
 		}
 		return null;
 	}
 
 	public void exportPrivate() throws Exception {
 		KeyStore keystore = KeyStore.getInstance(keyStoreType);
+		keystore.load(new FileInputStream(keystoreFile), password);
 		KeyPair keyPair = getKeyPair(keystore, alias, password);
 		BASE64Encoder encoder = new BASE64Encoder();
-		keystore.load(new FileInputStream(keystoreFile), password);
 		PrivateKey privateKey = keyPair.getPrivate();
 		String encoded = encoder.encode(privateKey.getEncoded());
 		FileWriter fw = new FileWriter(exportedPrivateKeyFile);
@@ -58,8 +55,8 @@ public class ExportKey {
 	}
 	public void exportCertificate() throws Exception {
 		KeyStore keystore = KeyStore.getInstance(keyStoreType);
-		BASE64Encoder encoder = new BASE64Encoder();
 		keystore.load(new FileInputStream(keystoreFile), password);
+		BASE64Encoder encoder = new BASE64Encoder();
 		Certificate cert = keystore.getCertificate(alias);
 		String encoded = encoder.encode(cert.getEncoded());
 		FileWriter fw = new FileWriter(exportedPublicKeyFile);
@@ -72,12 +69,12 @@ public class ExportKey {
 
 	public static void main(String args[]) throws Exception {
 		ExportKey export = new ExportKey();
-		export.keystoreFile = new File("/home/rain/nalle123.jks");
+		export.keystoreFile = new File("/home/rain/key/nalle123/nalle123.jks");
 		export.keyStoreType = "JKS";
 		export.password = "nalle123".toCharArray();
 		export.alias = "apollo";
-		export.exportedPrivateKeyFile = new File("/home/rain/key/exported-pkcs8.key");
-		export.exportedPublicKeyFile = new File("/home/rain/key/exported-public.key");
+		export.exportedPrivateKeyFile = new File("/home/rain/key/nalle123/exported-pkcs8.key");
+		export.exportedPublicKeyFile = new File("/home/rain/key/nalle123/exported-public.key");
 		export.exportPrivate();
 		export.exportCertificate();
 	}

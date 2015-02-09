@@ -18,6 +18,7 @@ public class BlockingQueueTest {
 		Producer producer2 = new Producer(queue);
 		Producer producer3 = new Producer(queue);
 		Consumer consumer = new Consumer(queue);
+		Consumer consumer1 = new Consumer(queue);
 
 		// 借助Executors
 		ExecutorService service = Executors.newCachedThreadPool();
@@ -26,6 +27,7 @@ public class BlockingQueueTest {
 		service.execute(producer2);
 		service.execute(producer3);
 		service.execute(consumer);
+		service.execute(consumer1);
 
 		// 执行10s
 		Thread.sleep(10 * 1000);
@@ -56,7 +58,7 @@ class Consumer implements Runnable {
 				System.out.println("正从队列获取数据...");
 				String data = queue.poll(2, TimeUnit.SECONDS);
 				if (null != data) {
-					System.out.println("拿到数据：" + data);
+					System.out.println(Thread.currentThread().getName()+"拿到数据：" + data);
 					System.out.println("正在消费数据：" + data);
 					Thread.sleep(r.nextInt(DEFAULT_RANGE_FOR_SLEEP));
 				} else {
