@@ -12,6 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.jackson.annotations>2.4.0</version.jackson.annotations>
+    <version.jackson.core>2.4.0</version.jackson.core>
   </properties>
 
   <dependencies>
@@ -80,5 +82,27 @@
 		    <artifactId>xml-apis</artifactId>
 		    <version>1.4.01</version>
 		</dependency>
+<!-- elasticSearch -->
+	<dependency>
+		<groupId>org.elasticsearch</groupId>
+		<artifactId>elasticsearch</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+	<dependency>
+<!-- jackson -->
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${version.jackson.core}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${version.jackson.annotations}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${version.jackson.core}</version>
+    </dependency>
   </dependencies>
 </project>
