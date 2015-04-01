@@ -14,6 +14,7 @@ import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.sort.SortOrder;
 
 public class ElasticSearchHandler {
 
@@ -72,7 +73,7 @@ public class ElasticSearchHandler {
      */
     public List<Medicine>  searcher(QueryBuilder queryBuilder, String indexname, String type){
         List<Medicine> list = new ArrayList<Medicine>();
-        SearchResponse searchResponse = client.prepareSearch(indexname).setTypes(type).setQuery(queryBuilder).execute().actionGet();
+        SearchResponse searchResponse = client.prepareSearch(indexname).addSort("function",SortOrder.ASC).setTypes(type).setQuery(queryBuilder).execute().actionGet();
         SearchHits hits = searchResponse.getHits();
         System.out.println("查询到记录数=" + hits.getTotalHits());
         SearchHit[] searchHists = hits.getHits();
@@ -100,7 +101,7 @@ public class ElasticSearchHandler {
         List<Medicine> result = esHandler.searcher(queryBuilder, indexname, type);
         for(int i=0; i<result.size(); i++){
             Medicine medicine = result.get(i);
-            System.out.println("(" + medicine.getId() + ")药品名称:" +medicine.getName() + "\t\t" + medicine.getFunction());
+            System.out.println("(" + medicine.getId() + ")名称:" +medicine.getName() + "\t\t" + medicine.getFunction());
         }
     }
 }

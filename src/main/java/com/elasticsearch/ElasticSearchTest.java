@@ -17,7 +17,7 @@ public class ElasticSearchTest{
 		// 当你启动一个节点,它会自动加入同网段的es集群,一个前提就是es的集群名(cluster.name)这个参数要设置一致。
 		String clusterName = "rain_es"; // 集群结点名称
 
-		nodeTest(clusterName);
+		//nodeTest(clusterName);
 		transportTest(clusterName);
 	}
 	/**
