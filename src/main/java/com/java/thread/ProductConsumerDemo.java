@@ -20,7 +20,7 @@ public class ProductConsumerDemo{
             System.out.println(Thread.currentThread().getName()+"----List is empty...,Wait...");
             synchedList.wait();
          }
-         String element = (String) synchedList.remove(0);
+         String element = synchedList.remove(0);
          System.out.println(Thread.currentThread().getName()+"----remove Element:"+element);
          synchedList.notifyAll();
          return element;

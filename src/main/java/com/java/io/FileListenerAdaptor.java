@@ -99,7 +99,6 @@ public class FileListenerAdaptor extends FileAlterationListenerAdaptor {
 
 		/**
 		 * @return return true:返回所有目录下所有文件详细(包含所有子目录)
-		 * @return return false:返回主目录下所有文件详细(不包含所有子目录)
 		 */
 		public boolean accept(File file) {
 			

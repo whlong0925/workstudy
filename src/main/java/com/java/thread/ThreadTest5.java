@@ -72,7 +72,7 @@ class Bussiness{
 				while(!ischar2){
 					this.wait();
 				}
-				System.out.print((char)i);
+				System.out.print(i);
 				isNumber = true;
 				ischar = false;
 				ischar2 = false;

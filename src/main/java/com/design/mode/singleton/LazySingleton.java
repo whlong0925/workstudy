@@ -12,6 +12,7 @@ public class LazySingleton {
     private LazySingleton(){}
     /**
      * 静态工厂方法
+     * @return 
      */
     public static synchronized LazySingleton getInstance(){
         if(instance == null){

@@ -4,7 +4,6 @@ import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsReques
 import org.elasticsearch.action.admin.indices.exists.types.TypesExistsRequest;
 import org.elasticsearch.action.admin.indices.flush.FlushRequest;
 import org.elasticsearch.client.Client;
-import org.elasticsearch.client.IndicesAdminClient;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.settings.Settings;
@@ -28,6 +27,7 @@ public class ESUtils {
 	 * 根据默认系统默认配置初始化库,如果已经有连接则使用该连接
 	 * 
 	 * @return
+	 * @throws Exception 
 	 */
 	public static Client getClient()  throws Exception{
 
@@ -47,6 +47,7 @@ public class ESUtils {
 	 * 初始化并连接elasticsearch集群，返回连接后的client
 	 * 
 	 * @return 返回连接的集群的client
+	 * @throws Exception 
 	 */
 	public static Client newClient()  throws Exception{
 		String clusterName = "rain_es"; //集群名称
@@ -95,10 +96,12 @@ public class ESUtils {
 
 	/**
 	 * 根据索引数据id删除索引
+	 * @param client 
 	 * 
 	 * @param indexName  索引名称
 	 * @param indexType 索引类型
 	 * @param id  对应数据ID
+	 * @throws Exception 
 	 */
 	public static void deleteIndex(Client client, String indexName,String indexType, String id)  throws Exception{
 		client.prepareDelete(indexName.toLowerCase(),indexType.toLowerCase(), id).execute().actionGet();
@@ -107,6 +110,7 @@ public class ESUtils {
 	/**
 	 * 根据索引名称删除索引
 	 * @param indexName 索引名称
+	 * @throws Exception 
 	 */
 	public static void deleteIndex(String indexName) throws Exception{
 		IndicesExistsRequest ier = new IndicesExistsRequest();

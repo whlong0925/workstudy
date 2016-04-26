@@ -11,6 +11,8 @@ public class Director {
 
 	/**
 	 * 产品构造方法，负责调用各零件的建造方法,一步步的建造出对象
+	 * @param toAddress 
+	 * @param fromAddress 
 	 */
 	public void construct(String toAddress, String fromAddress) {
 		this.builder.buildTo(toAddress);

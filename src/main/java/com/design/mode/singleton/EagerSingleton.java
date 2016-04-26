@@ -12,6 +12,7 @@ public class EagerSingleton {
     private EagerSingleton(){}
     /**
      * 静态工厂方法
+     * @return 
      */
     public static EagerSingleton getInstance(){
         return instance;

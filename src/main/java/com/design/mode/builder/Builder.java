@@ -30,6 +30,7 @@ public abstract class Builder {
 
 	/**
 	 * 邮件产品完成后，用此方法发送邮件 此方法相当于产品返还方法
+	 * @return 
 	 */
 	public AutoMessage getAutoMessage() {
 		return msg;

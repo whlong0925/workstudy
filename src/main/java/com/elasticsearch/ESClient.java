@@ -19,7 +19,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ESClient {
 
     
-    /**在运行该测试实例时,已经在本地建立了对应的索引库datum*/
+    /**在运行该测试实例时,已经在本地建立了对应的索引库datum
+     * @param args */
     public static void main(String[] args) {
         
         
